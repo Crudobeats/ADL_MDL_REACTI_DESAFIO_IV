@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Characters from "./Characters";
+import Character from "./Characters";
+import Row from "react-bootstrap/Row";
 
 const MiApi = () => {
   const [characters, setCharacters] = useState([]);
@@ -20,20 +21,23 @@ const MiApi = () => {
 
   return (
     <div>
-      <div className="container">
-        <input
+      <div className="search">
+        <input className="mb-3"
           onChange={(e) => {
             setBusqueda(e.target.value);
           }}
           type="text"
-          placeholder="Introduce un nombre"
+          placeholder="Introduce un nombre para buscar"
         />
-        <Characters
-          characters={characters.filter((character) =>
-            character.name.toLowerCase().includes(busqueda.toLowerCase())
-          )}
-          filter={busqueda}
-        />
+        <Row>
+          {characters
+            .filter((character) =>
+              character.name.toLowerCase().includes(busqueda.toLowerCase())
+            )
+            .map((character) => (
+              <Character key={character.id} character={character} />
+            ))}
+        </Row>
       </div>
     </div>
   );

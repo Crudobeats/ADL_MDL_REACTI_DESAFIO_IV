@@ -1,15 +1,21 @@
 import "./App.css";
 import MiApi from "./components/MiApi";
+import Navbar from "react-bootstrap/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="container-fluid">
-      <nav className="navbar navbar-light bg-light">
-        <h2>Rick & Morty Universe</h2>
-    </nav>
-    <div>
-      <MiApi />
-    </div>
+    <div className="all">
+      <Navbar bg="dark" variant="dark" className="mb-5" expand="lg">
+        <Navbar.Brand>
+        </Navbar.Brand>
+      </Navbar>
+      <div className="container-fluid">
+        <MiApi />
+      </div>
+      <div>
+        <Footer />
+      </div>
     </div>
   );
 }
