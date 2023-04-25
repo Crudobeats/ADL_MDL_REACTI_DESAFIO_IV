@@ -74,3 +74,8 @@ h1 {
   background-position: center;
   background-size: cover;
 }
+
+.me-2 {
+  color: white;
+  font-weight: 300;
+}
